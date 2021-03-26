@@ -1,4 +1,5 @@
 {
   "port" : 5001,
-  "mongoUri" : "mongodb+srv://mern:mern@cluster0.uqawz.mongodb.net/app?retryWrites=true&w=majority"
+  "mongoUri" : "mongodb+srv://mern:mern@cluster0.uqawz.mongodb.net/app?retryWrites=true&w=majority",
+  "jwtSecret" : "secret"
 }
