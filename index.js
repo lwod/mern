@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 5001
 
 app.get("/", async (req,res)=>{
-	req.json({
+	res.json({
 		status:"OK"
 	});
 })
