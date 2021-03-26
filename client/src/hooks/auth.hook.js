@@ -16,7 +16,12 @@ export const useAuth = () => {
 		}))
 	},[])
 
-	const logout = useCallback(()=>{},[])
+	const logout = useCallback(()=>{
+		setToken(null)
+		setUserId(null)
+		localStorage.removeItem(storageName)
+		
+	},[])
 	
-	return {login, logout}
+	return {login, logout, token, userId}
 }
