@@ -46,8 +46,36 @@ router.post('/reqister',
 	}
 })
 
-router.post('/login', async (req, res)=>{
-
-})
+router.post(
+	'/login',
+	[
+		check('email', 'Введите корректный email').normalizeEmail().isEmail(),
+		check('password', 'Введите пароль').exists()
+	],
+	async (req, res)=>{
+		try{
+			
+			const errors = validationResult(req);
+			if(!errors.isEmpty()){
+				return res.status(400).json({
+					errors: errors.array(),
+					message: 'Некорректные данные при входу в систему'
+				})
+			}
+			
+			const {email, password} = req.body;
+			
+			const user = await User.findOne({email})
+			
+			if(!user){
+				return res.status(400).json({message: 'Пользователь не найден'})
+			}
+			
+		}catch (e) {
+			res.status(500).json({
+				message: 'Что-то пошло не так, попробуйте снова'
+			})
+		}
+	})
 
 module.exports = router;
