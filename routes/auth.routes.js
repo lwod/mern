@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const bycrypt = require('bcryptjs')
 
 const {Router} = require('express')
 const router = Router();
@@ -12,6 +13,9 @@ router.post('/reqister', async (req, res)=>{
 		if(candidate){
 			return res.status(400).json({message: 'Такой пользователь уже существует'})
 		}
+		
+		const hashedPassword = await bycrypt.hash(password, 12);
+		
 		
 	}catch (e) {
 		res.status(500).json({
