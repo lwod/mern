@@ -8,7 +8,7 @@ const {check, validationResult} = require('express-validator')
 const {Router} = require('express')
 const router = Router();
 
-router.post('/reqister',
+router.post('/register',
 	[
 		check('email', 'Некорректный email').isEmail(),
 		check('password', 'Минимальная длина пароля 6 символом').isLength({min:6})
