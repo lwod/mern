@@ -10,7 +10,7 @@ app.use('/api/auth', require('./routes/auth.routes'));
 
 app.get("/", async (req,res)=>{
 	res.json({
-		status:"app/mongo"
+		status:"app"
 	});
 })
 
@@ -23,7 +23,8 @@ async function start(){
 		})
 		
 		app.listen(port, ()=>{
-			console.log('mern started : ', port)
+			console.log('mern on port : ', port);
+			console.log('auth-router and user-model');
 		})
 	}catch(e){
 		console.log('Server Error ', e.message)
