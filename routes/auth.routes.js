@@ -85,6 +85,8 @@ router.post(
 				{expiresIn: '1h'}
 				)
 			
+			res.json({token, userId:user.id})
+			
 			
 		}catch (e) {
 			res.status(500).json({
