@@ -71,6 +71,14 @@ router.post(
 				return res.status(400).json({message: 'Пользователь не найден'})
 			}
 			
+			const isMatch = await bcrypt.compare(password, user.password);
+			
+			if(!isMatch){
+				return res.status(400).json({message: 'Неверный пароль, попробуйте снова'})
+			}
+			
+			
+			
 		}catch (e) {
 			res.status(500).json({
 				message: 'Что-то пошло не так, попробуйте снова'
