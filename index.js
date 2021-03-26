@@ -9,5 +9,5 @@ app.get("/", async (req,res)=>{
 })
 
 app.listen(port, ()=>{
-	console.log('mern started')
+	console.log('mern index on port : ', port)
 })
