@@ -16,6 +16,12 @@ router.post('/reqister', async (req, res)=>{
 		
 		const hashedPassword = await bycrypt.hash(password, 12);
 		
+		const user = new User({email, password: hashedPassword});
+		
+		await user.save();
+		
+		res.status(201).json({message: 'Пользователь создан'})
+		
 		
 	}catch (e) {
 		res.status(500).json({
