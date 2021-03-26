@@ -6,6 +6,8 @@ const port = process.env.PORT || config.get('port')
 
 const mongoose = require('mongoose');
 
+app.use('/api/auth', require('./routes/auth.routes'));
+
 app.get("/", async (req,res)=>{
 	res.json({
 		status:"app/mongo"
