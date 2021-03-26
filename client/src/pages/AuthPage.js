@@ -27,7 +27,9 @@ export const AuthPage = () =>{
 		try {
 			const data = await request('/api/auth/register', "POST", {...form})
 			
-			console.log('Data: ', data)
+			message(data.message);
+			
+			//console.log('Data: ', data)
 			
 		}catch (e) {
 		
