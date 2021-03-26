@@ -14,6 +14,7 @@ app.get("/", async (req,res)=>{
 	});
 })
 
+
 async function start(){
 	try{
 		await mongoose.connect(config.get('mongoUri'), {
