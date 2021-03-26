@@ -6,8 +6,22 @@ const {check, validationResult} = require('express-validator')
 const {Router} = require('express')
 const router = Router();
 
-router.post('/reqister', async (req, res)=>{
+router.post('/reqister',
+	[
+		check('email', 'Некорректный email').isEmail(),
+		check('password', 'Минимальная длина пароля 6 символом').isLength({min:6})
+	],
+	async (req, res)=>{
 	try{
+		
+		const errors = validationResult(req);
+		if(!errors.isEmpty()){
+			return res.status(400).json({
+				errors: errors.array(),
+				message: 'Некорректные данные при регистрации'
+			})
+		}
+		
 		
 		const {email, password} = req.body
 		
