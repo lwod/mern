@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 app.get("/", async (req,res)=>{
 	res.json({
-		status:"app"
+		status:"app/mongo"
 	});
 })
 
