@@ -30,8 +30,7 @@ export const AuthPage = () =>{
 		try {
 			const data = await request('/api/auth/register', "POST", {...form})
 			
-			auth.login(data.token, data.userId);
-			//message(data.message);
+			message(data.message);
 			
 			//console.log('Data: ', data)
 			
@@ -44,7 +43,9 @@ export const AuthPage = () =>{
 		try {
 			const data = await request('/api/auth/login', "POST", {...form})
 			
-			message(data.message);
+			auth.login(data.token, data.userId);
+			
+			//message(data.message);
 			
 			//console.log('Data: ', data)
 			
