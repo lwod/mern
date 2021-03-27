@@ -20,10 +20,11 @@ router.post(
 
 router.get(
 	'/',
+	auth,
 	async (req,res)=>{
 		try{
 			
-			const links = await Link.find({owner: null})
+			const links = await Link.find({owner: req.user.userId})
 			res.json(links)
 			
 			
