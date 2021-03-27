@@ -1,11 +1,16 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useHttp} from "../hooks/http.hook";
 
 export const CreatePage = () =>{
 
 	const [link, setLink] = useState('')
 	const {request} = useHttp()
-
+	
+	useEffect(()=>{
+		window.M.updateTextFields()
+	})
+	
+	
 	const pressHandler = async (event) => {
 		if(event.key === 'Enter'){
 			try{
