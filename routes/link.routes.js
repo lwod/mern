@@ -3,6 +3,8 @@ const Link = require('../models/Link')
 const {Router} = require('express')
 const router = Router()
 
+const auth = require('../middleware/auth.middleware')
+
 router.post(
 	'/generate',
 	async (req,res)=>{
@@ -33,7 +35,7 @@ router.get(
 	
 })
 
-router(
+router.get(
 	'/:id',
 	async (req,res)=>{
 		try{
