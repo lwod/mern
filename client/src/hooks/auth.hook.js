@@ -30,7 +30,7 @@ export const useAuth = () => {
 			login(data.token, data.userId)
 		}
 		
-	}, [login()])
+	}, [login])
 	
 	return {login, logout, token, userId}
 }
