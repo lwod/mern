@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy" : "https://lwod.herokuapp.com/",
+  "proxy" : "https://lwodmern.herokuapp.com/",
   "eslintConfig": {
     "extends": [
       "react-app",
