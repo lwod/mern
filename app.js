@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || config.get('port')
 
+const path = require('path')
+
 const mongoose = require('mongoose');
 
 app.use(express.json({extended:true}))
@@ -12,11 +14,19 @@ app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/link', require('./routes/link.routes'));
 app.use('/t', require('./routes/redirect.router'));
 
-app.get("/", async (req,res)=>{
-	res.json({
-		status:"app"
-	});
-})
+if(process.env.NODE_ENV === 'production'){
+	app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+	
+	app.get('*', async (req,res)=>{
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+	})
+}
+
+// app.get("/", async (req,res)=>{
+// 	res.json({
+// 		status:"app"
+// 	});
+// })
 
 //
 
