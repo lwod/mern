@@ -2,5 +2,5 @@
   "port" : 5001,
   "mongoUri" : "mongodb+srv://mern:mern@cluster0.uqawz.mongodb.net/app?retryWrites=true&w=majority",
   "jwtSecret" : "secret",
-  "baseUrl" : "http://localhost:5001"
+  "baseUrl" : "https://lwod.herokuapp.com/"
 }
