@@ -2,6 +2,7 @@ import React, {useState, useContext, useCallback, useEffect} from "react";
 import {useHttp} from "../hooks/http.hook";
 import {AuthContext} from "../context/AuthContex";
 import {Loader} from "../components/Loader";
+import {LinksList} from "../components/LinksList";
 
 export const LinksPage = () =>{
 
@@ -29,7 +30,7 @@ export const LinksPage = () =>{
 	
 	return(
 		<>
-			{}
+			{!loading && <LinksList links={links}/>}
 		</>
 	)
 }
