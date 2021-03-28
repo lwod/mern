@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useContext} from "react";
+import React, {useState, useCallback, useContext, useEffect} from "react";
 import {useParams} from 'react-router-dom'
 import {useHttp} from "../hooks/http.hook";
 import {AuthContext} from "../context/AuthContex";
@@ -24,6 +24,12 @@ export const DetailPage = () =>{
 		
 		}
 	}, [token, linkId, request])
+	
+	useEffect(()=>{
+		getLink()
+	}, [getLink])
+	
+	
 	
 	return(
 		<div>
