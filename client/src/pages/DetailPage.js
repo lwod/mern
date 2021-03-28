@@ -2,6 +2,7 @@ import React, {useState, useCallback, useContext, useEffect} from "react";
 import {useParams} from 'react-router-dom'
 import {useHttp} from "../hooks/http.hook";
 import {AuthContext} from "../context/AuthContex";
+import {Loader} from "../components/Loader";
 
 
 export const DetailPage = () =>{
@@ -29,11 +30,13 @@ export const DetailPage = () =>{
 		getLink()
 	}, [getLink])
 	
-	
+	if(loading){
+		return <Loader/>
+	}
 	
 	return(
 		<div>
-			<h1>Detail Page</h1>
+			{/*{!loading && link && <LinkCard/>}*/}
 		</div>
 	)
 }
