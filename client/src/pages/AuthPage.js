@@ -14,7 +14,7 @@ export const AuthPage = () =>{
 		email:'',
 		password:'',
 	})
-	
+	//
 	useEffect(()=>{
 		message(error)
 		ClearError()
