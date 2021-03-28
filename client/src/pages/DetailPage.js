@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import {useHttp} from "../hooks/http.hook";
 import {AuthContext} from "../context/AuthContex";
 import {Loader} from "../components/Loader";
+import {LinkCard} from "../components/LinkCard";
 
 
 export const DetailPage = () =>{
@@ -36,7 +37,7 @@ export const DetailPage = () =>{
 	
 	return(
 		<div>
-			{/*{!loading && link && <LinkCard/>}*/}
+			{!loading && link && <LinkCard link={link}/>}
 		</div>
 	)
 }
